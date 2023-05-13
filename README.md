@@ -14,29 +14,28 @@ To get started with the project, follow these steps:
 
 The API has the following endpoints:
 
-### Retrieve a single product by ID
-GET /localhost:3000/products/:id
+### 1. Retrieve a single product by ID - GET /localhost:3000/products/:id
 
 This endpoint retrieves a single product by its ID. The ID is provided in the URL parameter.
-
-### Retrieve all products
-GET /localhost:3000/products
-
-This endpoint retrieves all products in the database.
-
-### Update the price of a product by ID
-PATCH /localhost:3000/products/:id
-
-This endpoint updates the price of a product by its ID. The ID is provided in the URL parameter. The new price is provided in the request body as a JSON object with a `price` property.
-
-
-#### Example Request
-GET /localhost:3000/products
-
-#### Example Response
+#### Example Request:
+GET /localhost:3000/products/1234
+#### Example Response:
 HTTP/1.1 200 OK
 Content-Type: application/json
+{
+"id": "1234",
+"name": "Product A",
+"description": "This is product A",
+"price": 19.99
+}
 
+### 2. Retrieve all products - GET /localhost:3000/products
+This endpoint retrieves all products in the database.
+#### Example Request:
+GET /localhost:3000/products
+#### Example Response:
+HTTP/1.1 200 OK
+Content-Type: application/json
 [
 {
 "id": "1234",
@@ -51,6 +50,23 @@ Content-Type: application/json
 "price": 29.99
 }
 ]
+
+### 3. Update the price of a product by ID - PATCH /localhost:3000/products/:id
+This endpoint updates the price of a product by its ID. The ID is provided in the URL parameter. The new price is provided in the request body as a JSON object with a `price` property.
+#### Example Request
+GET /localhost:3000/products/1234
+{
+"price": 24.99
+}
+#### Example Response
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+"id": "1234",
+"name": "Product A",
+"description": "This is product A",
+"price": 24.99
+}
 
 ## Error Handling
 
